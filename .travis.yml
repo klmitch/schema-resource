@@ -1,0 +1,17 @@
+sudo: false
+dist: xenial
+language: python
+matrix:
+  include:
+    - python: "3.7"
+      env: TEST_ENV=pep8
+    - python: "2.7"
+      env: TEST_ENV=py27
+    - python: "3.5"
+      env: TEST_ENV=py35
+    - python: "3.6"
+      env: TEST_ENV=py36
+    - python: "3.7"
+      env: TEST_ENV=py37
+install: pip install tox
+script: tox -e ${TEST_ENV}
